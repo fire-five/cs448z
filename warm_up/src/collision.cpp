@@ -13,27 +13,51 @@ GLfloat box_ball_collision(Box *box, Ball *ball) {
     GLfloat ball_z = ball->center_pos.z;
     glm::vec3 dv(0.0f, 0.0f, 0.0f);
     // force position in box
-    if (fabs(box_right - ball_x) <= ball->radius) {
+    // if (fabs(box_right - ball_x) <= ball->radius) {
+    //     ball->center_pos.x = box_right - ball->radius;
+    //     dv.x += -2.0 * ball->velocity.x;
+    // }
+    // if (fabs(box_left - ball_x) <= ball->radius) {
+    //     ball->center_pos.x = box_left + ball->radius;
+    //     dv.x += -2.0 * ball->velocity.x;
+    // }
+    // if (fabs(box_up - ball_y) <= ball->radius) {
+    //     ball->center_pos.y = box_up - ball->radius;
+    //     dv.y += -2.0 * ball->velocity.y;
+    // }
+    // if (fabs(box_down - ball_y) <= ball->radius) {
+    //     ball->center_pos.y = box_down + ball->radius;
+    //     dv.y += -2.0 * ball->velocity.y;
+    // }
+    // if (fabs(box_front - ball_z) <= ball->radius) {
+    //     ball->center_pos.z = box_front - ball->radius;
+    //     dv.z += -2.0 * ball->velocity.z;
+    // }
+    // if (fabs(box_back - ball_z) <= ball->radius) {
+    //     ball->center_pos.z = box_back + ball->radius;
+    //     dv.z += -2.0 * ball->velocity.z;
+    // }
+    if (ball->center_pos.x >= box_right - ball->radius) {
         ball->center_pos.x = box_right - ball->radius;
         dv.x += -2.0 * ball->velocity.x;
     }
-    if (fabs(box_left - ball_x) <= ball->radius) {
+    if (ball->center_pos.x <= box_left + ball->radius) {
         ball->center_pos.x = box_left + ball->radius;
         dv.x += -2.0 * ball->velocity.x;
     }
-    if (fabs(box_up - ball_y) <= ball->radius) {
+    if (ball->center_pos.y >= box_up - ball->radius) {
         ball->center_pos.y = box_up - ball->radius;
         dv.y += -2.0 * ball->velocity.y;
     }
-    if (fabs(box_down - ball_y) <= ball->radius) {
+    if (ball->center_pos.y <= box_down + ball->radius) {
         ball->center_pos.y = box_down + ball->radius;
         dv.y += -2.0 * ball->velocity.y;
     }
-    if (fabs(box_front - ball_z) <= ball->radius) {
+    if (ball->center_pos.z >= box_front - ball->radius) {
         ball->center_pos.z = box_front - ball->radius;
         dv.z += -2.0 * ball->velocity.z;
     }
-    if (fabs(box_back - ball_z) <= ball->radius) {
+    if (ball->center_pos.z <= box_back + ball->radius) {
         ball->center_pos.z = box_back + ball->radius;
         dv.z += -2.0 * ball->velocity.z;
     }

@@ -3,7 +3,9 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 SET (CMAKE_C_COMPILER "/usr/bin/gcc")
 SET (CMAKE_CXX_COMPILER "/usr/bin/g++")
-project(warm_up)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIE")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIE")
+project(acc_noise)
 include_directories(
     ${PROJECT_SOURCE_DIR}/include
     ${PROJECT_SOURCE_DIR}/src
